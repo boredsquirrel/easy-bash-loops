@@ -13,7 +13,7 @@ while true; do
     read -p "Save in this folder (y) Manual path (m), Clipboard (c) > " ymc
     case $ymc in
         [Yy]* ) path=$PWD && break;;
-        [Mm]* ) read -p "Enter a path: > " path && break;;
+        [Mm]* ) read -p "Enter a path: > " path && path=${path//~/$HOME} ; break;;
         [Cc]* ) printf """#!/bin/bash
 
 while true; do
@@ -54,4 +54,4 @@ while true; do
         [Nn]* ) $ifno && break;;
         * ) echo \"Please answer yes or no.\";;
     esac
-done""" > $path$loopname
+done""" > $path$loopname && echo "Loop saved as $path$loopname."
