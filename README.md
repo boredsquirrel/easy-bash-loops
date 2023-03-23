@@ -1,9 +1,9 @@
 # Easy bash loops
 A small script for easily creating yes/no bash loops for use in scripts. You can
 
-- Enter a qustion
+- Enter a question
 - state what happens if yes or no
-- sve the file to your working directory (automatic renaming if there are duplicates)
+- save the file to your working directory (automatic renaming if there are duplicates)
 - save the file to a custom directory
 - copy the loop to your clipboard (Wayland only)
 
