@@ -13,7 +13,7 @@ while true; do
     read -p "Save in this folder (y) Manual path (m), Clipboard (c) > " ymc
     case $ymc in
         [Yy]* ) path=$PWD && break;;
-        [Mm]* ) read -p "Enter a path: > " path && path=${path//~/$HOME} ; break;;
+        [Mm]* ) read -p "Enter a path: > " path && path=${path/\~/$HOME} ; break;;
         [Cc]* ) printf """#!/bin/bash
 
 while true; do
