@@ -1,0 +1,57 @@
+#!/bin/bash
+
+printf """
+- - - - Easy yes/no bash loop creator - - - -
+
+"""
+
+read -p "Enter a question: > " question
+read -p "What happens if yes? > " ifyes
+read -p "What happens if no? > " ifno
+
+while true; do
+    read -p "Save in this folder (y) Manual path (m), Clipboard (c) > " ymc
+    case $ymc in
+        [Yy]* ) path=$PWD && break;;
+        [Mm]* ) read -p "Enter a path: " path && break;;
+        [Cc]* ) printf """#!/bin/bash
+
+while true; do
+    read -p "'$question' \(y/n\) > " yn
+    case $yn in
+        [Yy]* ) $ifyes && break;;
+        [Nn]* ) $ifno && break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done""" | wl-copy && echo "Copied to clipboard." && exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+while true; do
+    read -p "Name your loop? Otherwise automatic. (y/n) > " yn
+    case $yn in
+        [Yy]* ) read -p "Name of your loop: " loopname && break;;
+        [Nn]* ) loopname=loop && break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+if [[ -e $loopname || -L $loopname ]] ; then
+    i=2
+    while [[ -e $loopname-$i || -L $loopname-$i ]] ; do
+        let i++
+    done
+    loopname=$loopname-$i
+fi
+
+printf """#!/bin/bash
+
+while true; do
+    read -p \"$question (y/n) > \" yn
+    case \$yn in
+        [Yy]* ) $ifyes && break;;
+        [Nn]* ) $ifno && break;;
+        * ) echo \"Please answer yes or no.\";;
+    esac
+done""" >> $path/$loopname
