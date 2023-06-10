@@ -9,6 +9,10 @@ A small script for easily creating yes/no bash loops for use in scripts. You can
 
 ![Screenshot](https://github.com/trytomakeyouprivate/easy-bash-loops/blob/main/bash-loops.png)
 
+![Screenshot 2](https://github.com/trytomakeyouprivate/easy-bash-loops/blob/main/bash-loop-2.png)
+
+![Screenshot 3](https://github.com/trytomakeyouprivate/easy-bash-loops/blob/main/stallmanloop.png)
+
 I fixed the code completely. It works very well now.
 
 Dependencies:
