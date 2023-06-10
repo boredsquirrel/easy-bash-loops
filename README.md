@@ -4,10 +4,19 @@ A small script for easily creating yes/no bash loops for use in scripts. You can
 - Enter a question
 - state what happens if yes or no
 - save the file to your working directory (automatic renaming if there are duplicates)
-- save the file to a custom directory
+- save the file to a custom directory (no matter if ending with "/" or not)
 - copy the loop to your clipboard (Wayland only)
 
 ![Screenshot](https://github.com/trytomakeyouprivate/easy-bash-loops/blob/main/bash-loops.png)
+
+I fixed the code completely. It works very well now.
+
+Dependencies:
+- bash
+- cat
+- wl-clip (change it to xclip if you want)
+- read
+- printf (only for header)
 
 ## Install
 
