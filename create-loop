@@ -47,7 +47,7 @@ if [[ -e $loopname || -L $loopname ]] ; then                                    
     loopname=$loopname-$i                                                                               #set loopname to be highest needed number appended to it
 fi
 
-cat > $path$loopname <<EOF && echo "Loop saved in $path$loopname."                                      #print the loop to the given manual or automatic path with given name
+cat >> $path$loopname <<EOF && echo "Loop saved in $path$loopname."                                      #print the loop to the given manual or automatic path with given name
 #!/bin/sh
 
 while true; do
@@ -59,7 +59,3 @@ while true; do
     esac
 done
 EOF
-
-
-# TODO
-# maybe adding an append function would be cool, but clipboard copy solves that
